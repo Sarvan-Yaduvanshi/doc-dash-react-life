@@ -7,7 +7,7 @@ import StatsOverview from '@/components/StatsOverview';
 import PatientsList from '@/components/PatientsList';
 import UpcomingAppointments from '@/components/UpcomingAppointments';
 import RecentActivity from '@/components/RecentActivity';
-import CalendarView from '@/components/CalendarView';
+import DashboardAnalytics from '@/components/DashboardAnalytics';
 
 const Index = () => {
   return (
@@ -19,9 +19,11 @@ const Index = () => {
           <DashboardHeader doctorName="Sarah Miller" />
           
           <div className="p-6 bg-slate-50 min-h-[calc(100vh-76px)]">
-            <h2 className="text-2xl font-bold mb-6">Dashboard Overview</h2>
+            <h2 className="text-2xl font-bold mb-6 text-medical-dark">Dashboard Overview</h2>
             
             <StatsOverview />
+            
+            <DashboardAnalytics />
             
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
               <div className="lg:col-span-2">
@@ -34,7 +36,6 @@ const Index = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <RecentActivity />
-              <CalendarView />
             </div>
           </div>
         </div>
