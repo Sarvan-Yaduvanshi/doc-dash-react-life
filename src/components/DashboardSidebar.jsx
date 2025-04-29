@@ -22,10 +22,10 @@ import {
   SidebarTrigger,
 } from '@/components/ui/sidebar';
 
-const DashboardSidebar: React.FC = () => {
+const DashboardSidebar = () => {
   const location = useLocation();
   
-  const isActive = (path: string) => {
+  const isActive = (path) => {
     return location.pathname === path;
   };
 

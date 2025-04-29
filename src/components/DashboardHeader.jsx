@@ -5,11 +5,7 @@ import { Bell, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
-interface DashboardHeaderProps {
-  doctorName: string;
-}
-
-const DashboardHeader: React.FC<DashboardHeaderProps> = ({ doctorName }) => {
+const DashboardHeader = ({ doctorName }) => {
   return (
     <div className="flex items-center justify-between py-4 px-6 bg-white shadow-sm">
       <h1 className="text-2xl font-bold text-gray-800">Welcome, Dr. {doctorName}</h1>

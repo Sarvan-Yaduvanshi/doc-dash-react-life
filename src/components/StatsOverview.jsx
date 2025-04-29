@@ -3,7 +3,7 @@ import React from 'react';
 import { Calendar, Clock, Users, CalendarCheck } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
-const StatsOverview: React.FC = () => {
+const StatsOverview = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
       <Card className="stat-card border-l-4 border-medical-primary hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200">
