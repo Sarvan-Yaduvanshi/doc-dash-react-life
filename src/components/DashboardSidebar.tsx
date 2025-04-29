@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   Calendar, 
   Heart, 
@@ -8,7 +9,6 @@ import {
   Clock, 
   Activity,
   Settings, 
-  CalendarDays,
   User
 } from 'lucide-react';
 import { 
@@ -23,6 +23,12 @@ import {
 } from '@/components/ui/sidebar';
 
 const DashboardSidebar: React.FC = () => {
+  const location = useLocation();
+  
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
+
   return (
     <Sidebar>
       <SidebarHeader className="p-4">
@@ -35,53 +41,53 @@ const DashboardSidebar: React.FC = () => {
       <SidebarContent>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton className="nav-link active">
+            <SidebarMenuButton className={`nav-link ${isActive('/') ? 'active' : ''}`}>
               <Home className="h-5 w-5" />
-              <span>Dashboard</span>
+              <Link to="/" className="flex-1">Dashboard</Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           
           <SidebarMenuItem>
-            <SidebarMenuButton className="nav-link">
+            <SidebarMenuButton className={`nav-link ${isActive('/appointments') ? 'active' : ''}`}>
               <Calendar className="h-5 w-5" />
-              <span>Appointments</span>
+              <Link to="/appointments" className="flex-1">Appointments</Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           
           <SidebarMenuItem>
-            <SidebarMenuButton className="nav-link">
+            <SidebarMenuButton className={`nav-link ${isActive('/patients') ? 'active' : ''}`}>
               <Users className="h-5 w-5" />
-              <span>Patients</span>
+              <Link to="/patients" className="flex-1">Patients</Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           
           <SidebarMenuItem>
-            <SidebarMenuButton className="nav-link">
+            <SidebarMenuButton className={`nav-link ${isActive('/medical-records') ? 'active' : ''}`}>
               <Activity className="h-5 w-5" />
-              <span>Medical Records</span>
+              <Link to="/medical-records" className="flex-1">Medical Records</Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           
           <SidebarMenuItem>
-            <SidebarMenuButton className="nav-link">
+            <SidebarMenuButton className={`nav-link ${isActive('/schedule') ? 'active' : ''}`}>
               <Clock className="h-5 w-5" />
-              <span>Schedule</span>
+              <Link to="/schedule" className="flex-1">Schedule</Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
           
           <SidebarMenuItem>
-            <SidebarMenuButton className="nav-link">
+            <SidebarMenuButton className={`nav-link ${isActive('/staff') ? 'active' : ''}`}>
               <User className="h-5 w-5" />
-              <span>Staff</span>
+              <Link to="/staff" className="flex-1">Staff</Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarContent>
       
       <SidebarFooter className="p-4">
-        <SidebarMenuButton className="nav-link w-full">
+        <SidebarMenuButton className={`nav-link w-full ${isActive('/settings') ? 'active' : ''}`}>
           <Settings className="h-5 w-5" />
-          <span>Settings</span>
+          <Link to="/settings" className="flex-1">Settings</Link>
         </SidebarMenuButton>
       </SidebarFooter>
       
